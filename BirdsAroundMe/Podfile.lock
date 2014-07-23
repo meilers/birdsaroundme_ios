@@ -1,0 +1,59 @@
+PODS:
+  - AFNetworking (2.1.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.1.0):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.1.0)
+  - AFNetworking/Security (2.1.0)
+  - AFNetworking/Serialization (2.1.0)
+  - AFNetworking/UIKit (2.1.0):
+    - AFNetworking/NSURLConnection
+  - CrittercismSDK (4.3.4)
+  - GoogleConversionTracking (2.1.0)
+  - iCarousel (1.7.6)
+  - MTLabel (0.0.1)
+  - Reachability (3.1.1)
+  - Sailthru_SDK_iOS (3.2.7):
+    - Sailthru_SDK_iOS/ios7
+  - Sailthru_SDK_iOS/ios7 (3.2.7)
+  - SwipeView (1.2.9)
+  - Taplytics (1.2.50)
+  - Toast (2.2)
+  - UIView+AutoLayout (2.0.1)
+
+DEPENDENCIES:
+  - AFNetworking (= 2.1)
+  - CrittercismSDK (~> 4.3.1)
+  - GoogleConversionTracking (< 3.0.0)
+  - iCarousel (~> 1.7.6)
+  - MTLabel (~> 0.0.1)
+  - Reachability (~> 3.1.1)
+  - Sailthru_SDK_iOS (~> 3.2.7)
+  - SwipeView (= 1.2.9)
+  - Taplytics (~> 1.2.2)
+  - Toast (~> 2.2)
+  - UIView+AutoLayout
+
+SPEC CHECKSUMS:
+  AFNetworking: 7c33510b46f994bc75b75c6e63c1d83414ca40f2
+  CrittercismSDK: d32f9f730158e3e646c445b752d7851710a1fed2
+  GoogleConversionTracking: f9b30b7a5015d67ac7376c9eb601c5a8449873cd
+  iCarousel: c35a4e26b3c657847e523012b593e70ddbd84992
+  MTLabel: 2fa2169a715510a29d461177674b90bf89fe9437
+  Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
+  Sailthru_SDK_iOS: 978e46d2d6071e6d46eb49d7c17d0e651b0233f4
+  SwipeView: f871b795fe0181ffb9dc2c2946a4521eeaf3215b
+  Taplytics: 292c7c0a7814914f6a1a3e34fdf96b7233c2425d
+  Toast: dcf6e9f10369291f9c22feae1bed93c9ed3d84a2
+  UIView+AutoLayout: d876c583c3dec28b5c3916175ea4b6ad70a8be34
+
+COCOAPODS: 0.33.1
