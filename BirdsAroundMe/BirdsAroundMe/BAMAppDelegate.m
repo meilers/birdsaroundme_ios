@@ -28,9 +28,16 @@
         BAMMasterViewController *controller = (BAMMasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        BAMMasterViewController *controller = (BAMMasterViewController *)navigationController.topViewController;
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+        BAMMasterViewController *controller = [[BAMMasterViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc]  initWithRootViewController:controller];
+        
+
         controller.managedObjectContext = self.managedObjectContext;
+        
+        self.window.rootViewController = nav;
+        [self.window makeKeyAndVisible];
     }
     return YES;
 }
