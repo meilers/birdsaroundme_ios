@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 sobremesa. All rights reserved.
 //
 
-#import "BAMModelObject+Additions.h"
+#import "BAMModelObject+Extensions.h"
 
-@implementation BAMModelObject (Additions)
+@implementation BAMModelObject (Extensions)
 
 + (id)entityName
 {

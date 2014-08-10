@@ -11,7 +11,7 @@
 
 #import "BAMModelObject.h"
 
-@interface BAMModelObject (Additions)
+@interface BAMModelObject (Extensions)
 
 + (id)entityName;
 + (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext*)context;

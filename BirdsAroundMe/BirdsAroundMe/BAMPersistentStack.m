@@ -2,7 +2,7 @@
 //  BAMPersistentStack.m
 //  BirdsAroundMe
 //
-//  Created by Michael J. Eilers Smith on 2014-07-23.
+//  Created by Michael J. Eilers Smith on 2014-08-07.
 //  Copyright (c) 2014 sobremesa. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic) NSURL* storeURL;
 
 @end
+
 
 @implementation BAMPersistentStack
 

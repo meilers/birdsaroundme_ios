@@ -9,6 +9,7 @@
 #import "BAMMasterViewController.h"
 
 #import "BAMDetailViewController.h"
+#import "BAMRemoteSighting.h"
 
 @interface BAMMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -228,8 +229,8 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    BAMRemoteSighting *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [object comName];
 }
 
 @end
