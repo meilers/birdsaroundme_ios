@@ -10,11 +10,12 @@
 
 
 @class BAMEbirdWebservice;
+@class BAMMergeChangesDelegate;
 
 @interface BAMSightingSynchronizer : NSObject
 
 - (id)initWithContext:(NSManagedObjectContext *)context
            webservice:(BAMEbirdWebservice *)webservice;
-- (void)sync;
+- (void)syncWithObserver:(BAMMergeChangesDelegate*)observer;
 
 @end

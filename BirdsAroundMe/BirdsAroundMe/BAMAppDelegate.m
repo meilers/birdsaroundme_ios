@@ -10,22 +10,19 @@
 
 #import "BAMMasterViewController.h"
 #import "BAMPersistentStack.h"
+#import "BAMPersistentStackManager.h"
 #import "BAMEbirdWebservice.h"
 #import "BAMSightingSynchronizer.h"
 
 @interface BAMAppDelegate ()
 
-@property (nonatomic, strong) BAMSightingSynchronizer *importer;
 @end
 
 @implementation BAMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.persistentStack = [[BAMPersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
-    self.webservice = [[BAMEbirdWebservice alloc] init];
-    self.importer = [[BAMSightingSynchronizer alloc] initWithContext:self.persistentStack.backgroundManagedObjectContext webservice:self.webservice];
-    [self.importer sync];
+    self.persistentStack = [[BAMPersistentStackManager sharedManager] persistentStack];
     
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -181,27 +178,6 @@
         NSLog(@"error saving: %@", error.localizedDescription);
     }
 }
-
-
-- (NSURL*)storeURL
-{
-    return [self.applicationDocumentsDirectory URLByAppendingPathComponent:@"BirdsAroundMe.sqlite"];
-}
-
-- (NSURL*)modelURL
-{
-    return [[NSBundle mainBundle] URLForResource:@"BirdsAroundMe" withExtension:@"momd"];
-}
-
-
-#pragma mark - Application's Documents directory
-
-// Returns the URL to the application's Documents directory.
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
 
 
 @end

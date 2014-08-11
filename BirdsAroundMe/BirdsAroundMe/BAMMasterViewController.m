@@ -10,8 +10,18 @@
 
 #import "BAMDetailViewController.h"
 #import "BAMRemoteSighting.h"
+#import "BAMSightingSynchronizer.h"
+#import "BAMPersistentStackManager.h"
+#import "BAMPersistentStack.h"
+#import "BAMEbirdWebservice.h"
+#import "BAMSightingSynchronizer.h"
 
 @interface BAMMasterViewController ()
+
+@property (nonatomic, strong) BAMEbirdWebservice *webservice;
+@property (nonatomic, strong) BAMPersistentStack *persistentStack;
+@property (nonatomic, strong) BAMSightingSynchronizer *synchronizer;
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
@@ -35,6 +45,8 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (BAMDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    [self.synchronizer syncWithObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -233,4 +245,46 @@
     cell.textLabel.text = [object comName];
 }
 
+                         
+                         
+- (BAMPersistentStack*)persistentStack
+{
+    return [[BAMPersistentStackManager sharedManager] persistentStack];
+}
+
+- (BAMEbirdWebservice*)webservice
+{
+    if( _webservice == nil )
+    {
+        _webservice = [[BAMEbirdWebservice alloc] init];
+    }
+    
+    return _webservice;
+}
+
+- (BAMSightingSynchronizer*)synchronizer
+{
+    if( _synchronizer == nil )
+    {
+        _synchronizer = [[BAMSightingSynchronizer alloc] initWithContext:self.persistentStack.backgroundManagedObjectContext webservice:self.webservice];
+    }
+    
+    return _synchronizer;
+}
+
+
+
+# pragma mark - notification
+
+- (void)mergeChanges:(NSNotification*)notification
+{
+    if( notification != nil )
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[self.fetchedResultsController managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
+        });
+    }
+}
+
+                         
 @end

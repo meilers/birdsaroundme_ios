@@ -7,16 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "BAMMergeChangesDelegate.h"
 
 @class BAMDetailViewController;
+@class BAMPersistentStack;
+@class BAMEbirdWebservice;
+@class BAMSightingSynchronizer;
 
-#import <CoreData/CoreData.h>
 
-@interface BAMMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface BAMMasterViewController : UITableViewController <BAMMergeChangesDelegate, NSFetchedResultsControllerDelegate>
+
 
 @property (strong, nonatomic) BAMDetailViewController *detailViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 
 @end

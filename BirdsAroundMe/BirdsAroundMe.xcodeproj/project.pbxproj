@@ -34,6 +34,7 @@
 		FAABFBEC19970681009E9AB9 /* BAMEbirdWebservice.m in Sources */ = {isa = PBXBuildFile; fileRef = FAABFBEB19970681009E9AB9 /* BAMEbirdWebservice.m */; };
 		FAABFBEF19970E3F009E9AB9 /* BAMRemoteSighting+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAABFBEE19970E3F009E9AB9 /* BAMRemoteSighting+Extensions.m */; };
 		FAABFBF419971F61009E9AB9 /* BAMSightingSynchronizer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAABFBF319971F61009E9AB9 /* BAMSightingSynchronizer.m */; };
+		FAABFBF71998518A009E9AB9 /* BAMPersistentStackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAABFBF61998518A009E9AB9 /* BAMPersistentStackManager.m */; };
 		FAF27F7E1994654D004854CF /* BAMPersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF27F7D1994654D004854CF /* BAMPersistentStack.m */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,9 @@
 		FAABFBEE19970E3F009E9AB9 /* BAMRemoteSighting+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BAMRemoteSighting+Extensions.m"; sourceTree = "<group>"; };
 		FAABFBF219971F61009E9AB9 /* BAMSightingSynchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMSightingSynchronizer.h; sourceTree = "<group>"; };
 		FAABFBF319971F61009E9AB9 /* BAMSightingSynchronizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAMSightingSynchronizer.m; sourceTree = "<group>"; };
+		FAABFBF51998518A009E9AB9 /* BAMPersistentStackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMPersistentStackManager.h; sourceTree = "<group>"; };
+		FAABFBF61998518A009E9AB9 /* BAMPersistentStackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAMPersistentStackManager.m; sourceTree = "<group>"; };
+		FAABFBF919986105009E9AB9 /* BAMMergeChangesDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMMergeChangesDelegate.h; sourceTree = "<group>"; };
 		FAF27F7C1994654D004854CF /* BAMPersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMPersistentStack.h; sourceTree = "<group>"; };
 		FAF27F7D1994654D004854CF /* BAMPersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAMPersistentStack.m; sourceTree = "<group>"; };
 		FBDB7903932A46B78E00656B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +159,7 @@
 		4C830A40198030980016D01D /* BirdsAroundMe */ = {
 			isa = PBXGroup;
 			children = (
+				FAABFBF81998604F009E9AB9 /* Protocols */,
 				4C830A49198030980016D01D /* BAMAppDelegate.h */,
 				4C830A4A198030980016D01D /* BAMAppDelegate.m */,
 				FAF27F7C1994654D004854CF /* BAMPersistentStack.h */,
@@ -206,6 +211,8 @@
 		FA5CB8071980B128008E12B5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FAABFBF51998518A009E9AB9 /* BAMPersistentStackManager.h */,
+				FAABFBF61998518A009E9AB9 /* BAMPersistentStackManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -226,6 +233,14 @@
 				FAABFBEB19970681009E9AB9 /* BAMEbirdWebservice.m */,
 			);
 			name = Webservices;
+			sourceTree = "<group>";
+		};
+		FAABFBF81998604F009E9AB9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FAABFBF919986105009E9AB9 /* BAMMergeChangesDelegate.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		FAF27F78199461C5004854CF /* DataSources */ = {
@@ -403,6 +418,7 @@
 				FAABFBF419971F61009E9AB9 /* BAMSightingSynchronizer.m in Sources */,
 				4C830A5A198030980016D01D /* BAMDetailViewController.m in Sources */,
 				4C830A54198030980016D01D /* BirdsAroundMe.xcdatamodeld in Sources */,
+				FAABFBF71998518A009E9AB9 /* BAMPersistentStackManager.m in Sources */,
 				4C830A57198030980016D01D /* BAMMasterViewController.m in Sources */,
 				FA5CB7FD1980A994008E12B5 /* BAMModelObject.m in Sources */,
 				FA5CB8031980A995008E12B5 /* BAMRemoteSighting.m in Sources */,

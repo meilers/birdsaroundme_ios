@@ -8,6 +8,7 @@
 
 #import "BAMSightingSynchronizer.h"
 #import "BAMEbirdWebservice.h"
+#import "BAMMergeChangesDelegate.h"
 #import "BAMRemoteSighting+Extensions.h"
 
 @interface BAMSightingSynchronizer ()
@@ -29,12 +30,20 @@
     return self;
 }
 
-- (void)sync
+- (void)syncWithObserver:(BAMMergeChangesDelegate*)observer
 {
     [self.webservice fetchAllSightings:^(NSArray *sightings)
      {
          [self.context performBlock:^
           {
+              // Register for context save changes notification
+              NSNotificationCenter *notify = [NSNotificationCenter defaultCenter];
+              [notify addObserver:observer
+                         selector:@selector(mergeChanges:)
+                             name:NSManagedObjectContextDidSaveNotification
+                           object:self.context];
+              
+              
               NSError *error = nil;
               NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"BAMRemoteSighting"];
               [request setSortDescriptors:[NSArray arrayWithObject:
@@ -70,14 +79,14 @@
                   [sighting loadFromDictionary:remoteSightingData];
                   
                   [remoteSightingsSyncedMap setObject:sighting forKey:remoteSightingId];
-                  
-                  
-                  // Delete
-                  for (NSString *key in localSightingMap)
-                  {
-                      [self.context deleteObject:[localSightingMap objectForKey:key]];
-                  }
               }
+              
+              // Delete
+              for (NSString *key in localSightingMap)
+              {
+                  [self.context deleteObject:[localSightingMap objectForKey:key]];
+              }
+              
               [self.context save:&error];
               if (error) {
                   NSLog(@"Error: %@", error.localizedDescription);
