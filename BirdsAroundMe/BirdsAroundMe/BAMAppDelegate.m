@@ -14,6 +14,8 @@
 #import "BAMEbirdWebservice.h"
 #import "BAMSightingSynchronizer.h"
 
+#import "BAMDatabaseUtil.h"
+
 @interface BAMAppDelegate ()
 
 @end

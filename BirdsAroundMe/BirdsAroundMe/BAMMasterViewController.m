@@ -46,7 +46,7 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (BAMDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    [self.synchronizer syncWithObserver:self];
+    [self.synchronizer sync];
 }
 
 - (void)didReceiveMemoryWarning

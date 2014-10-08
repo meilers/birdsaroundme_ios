@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)syncWithObserver:(BAMMergeChangesDelegate*)observer
+- (void)sync
 {
     [self.webservice fetchAllSightings:^(NSArray *sightings)
      {
@@ -38,7 +38,7 @@
           {
               // Register for context save changes notification
               NSNotificationCenter *notify = [NSNotificationCenter defaultCenter];
-              [notify addObserver:observer
+              [notify addObserver:self.delegate
                          selector:@selector(mergeChanges:)
                              name:NSManagedObjectContextDidSaveNotification
                            object:self.context];
@@ -53,9 +53,6 @@
               NSMutableDictionary *localSightingMap = [NSMutableDictionary dictionaryWithObjects:localSightings forKeys:[localSightings valueForKey:@"comName"]];
               
               
-              NSMutableDictionary *remoteSightingsSyncedMap = [[NSMutableDictionary alloc] init];
-
-              
               for(NSDictionary *remoteSightingData in sightings) {
                   
                   NSString *remoteSightingId = [remoteSightingData objectForKey:@"comName"];
@@ -64,9 +61,7 @@
                   // Insert
                   if( ![[localSightingMap allKeys] containsObject:remoteSightingId] )
                   {
-                  
                       sighting = (BAMRemoteSighting *)[NSEntityDescription insertNewObjectForEntityForName:@"BAMRemoteSighting" inManagedObjectContext:self.context];
-                    
                   }
                   // Update
                   else{
@@ -77,8 +72,6 @@
                   }
                   
                   [sighting loadFromDictionary:remoteSightingData];
-                  
-                  [remoteSightingsSyncedMap setObject:sighting forKey:remoteSightingId];
               }
               
               // Delete

@@ -14,8 +14,10 @@
 
 @interface BAMSightingSynchronizer : NSObject
 
+@property (strong, nonatomic) BAMMergeChangesDelegate *delegate;
+
 - (id)initWithContext:(NSManagedObjectContext *)context
            webservice:(BAMEbirdWebservice *)webservice;
-- (void)syncWithObserver:(BAMMergeChangesDelegate*)observer;
+- (void)sync;
 
 @end

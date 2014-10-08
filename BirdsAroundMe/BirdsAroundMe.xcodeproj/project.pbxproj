@@ -27,6 +27,7 @@
 		4C830A6E198030980016D01D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C830A6C198030980016D01D /* InfoPlist.strings */; };
 		4C830A70198030980016D01D /* BirdsAroundMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C830A6F198030980016D01D /* BirdsAroundMeTests.m */; };
 		90AEA22B28EB416A85A4C316 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDB7903932A46B78E00656B /* libPods.a */; };
+		FA0BAD6619E3843300699282 /* BAMDatabaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0BAD6519E3843300699282 /* BAMDatabaseUtil.m */; };
 		FA5CB7FD1980A994008E12B5 /* BAMModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5CB7FC1980A994008E12B5 /* BAMModelObject.m */; };
 		FA5CB8001980A995008E12B5 /* BAMRemoteBirdImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5CB7FF1980A995008E12B5 /* BAMRemoteBirdImage.m */; };
 		FA5CB8031980A995008E12B5 /* BAMRemoteSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5CB8021980A995008E12B5 /* BAMRemoteSighting.m */; };
@@ -74,6 +75,8 @@
 		4C830A6D198030980016D01D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C830A6F198030980016D01D /* BirdsAroundMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BirdsAroundMeTests.m; sourceTree = "<group>"; };
 		4D4BD49A5F764D4183A74C72 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FA0BAD6419E3843300699282 /* BAMDatabaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMDatabaseUtil.h; sourceTree = "<group>"; };
+		FA0BAD6519E3843300699282 /* BAMDatabaseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAMDatabaseUtil.m; sourceTree = "<group>"; };
 		FA5CB7FB1980A994008E12B5 /* BAMModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMModelObject.h; sourceTree = "<group>"; };
 		FA5CB7FC1980A994008E12B5 /* BAMModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAMModelObject.m; sourceTree = "<group>"; };
 		FA5CB7FE1980A995008E12B5 /* BAMRemoteBirdImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAMRemoteBirdImage.h; sourceTree = "<group>"; };
@@ -159,21 +162,21 @@
 		4C830A40198030980016D01D /* BirdsAroundMe */ = {
 			isa = PBXGroup;
 			children = (
-				FAABFBF81998604F009E9AB9 /* Protocols */,
 				4C830A49198030980016D01D /* BAMAppDelegate.h */,
 				4C830A4A198030980016D01D /* BAMAppDelegate.m */,
-				FAF27F7C1994654D004854CF /* BAMPersistentStack.h */,
-				FAF27F7D1994654D004854CF /* BAMPersistentStack.m */,
 				4C830A52198030980016D01D /* BirdsAroundMe.xcdatamodeld */,
+				FAFE05D519809EF100DED806 /* Controllers */,
+				FA0BAD6219E382F400699282 /* Database */,
 				FAF27F78199461C5004854CF /* DataSources */,
 				4C830A5B198030980016D01D /* Images.xcassets */,
 				4C830A4F198030980016D01D /* Main_iPad.storyboard */,
 				4C830A4C198030980016D01D /* Main_iPhone.storyboard */,
 				FA5CB8071980B128008E12B5 /* Managers */,
 				FAFE05D61980A1EC00DED806 /* Models */,
+				FAABFBF81998604F009E9AB9 /* Protocols */,
 				4C830A41198030980016D01D /* Supporting Files */,
 				FAABFBF019971411009E9AB9 /* Synchronizers */,
-				FAFE05D519809EF100DED806 /* ViewControllers */,
+				FA0BAD6319E383F100699282 /* Utilities */,
 				FAABFBF119971E3D009E9AB9 /* Webservices */,
 			);
 			path = BirdsAroundMe;
@@ -208,11 +211,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FA0BAD6219E382F400699282 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FAF27F7C1994654D004854CF /* BAMPersistentStack.h */,
+				FAF27F7D1994654D004854CF /* BAMPersistentStack.m */,
+				FAABFBF51998518A009E9AB9 /* BAMPersistentStackManager.h */,
+				FAABFBF61998518A009E9AB9 /* BAMPersistentStackManager.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		FA0BAD6319E383F100699282 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FA0BAD6419E3843300699282 /* BAMDatabaseUtil.h */,
+				FA0BAD6519E3843300699282 /* BAMDatabaseUtil.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		FA5CB8071980B128008E12B5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				FAABFBF51998518A009E9AB9 /* BAMPersistentStackManager.h */,
-				FAABFBF61998518A009E9AB9 /* BAMPersistentStackManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -250,7 +271,7 @@
 			name = DataSources;
 			sourceTree = "<group>";
 		};
-		FAFE05D519809EF100DED806 /* ViewControllers */ = {
+		FAFE05D519809EF100DED806 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				4C830A55198030980016D01D /* BAMMasterViewController.h */,
@@ -258,7 +279,7 @@
 				4C830A58198030980016D01D /* BAMDetailViewController.h */,
 				4C830A59198030980016D01D /* BAMDetailViewController.m */,
 			);
-			name = ViewControllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		FAFE05D61980A1EC00DED806 /* Models */ = {
@@ -328,6 +349,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = sobremesa;
 				TargetAttributes = {
+					4C830A34198030980016D01D = {
+						DevelopmentTeam = Q333DC2NBH;
+					};
 					4C830A60198030980016D01D = {
 						TestTargetID = 4C830A34198030980016D01D;
 					};
@@ -425,6 +449,7 @@
 				FAF27F7E1994654D004854CF /* BAMPersistentStack.m in Sources */,
 				FAABFBEF19970E3F009E9AB9 /* BAMRemoteSighting+Extensions.m in Sources */,
 				FAABFBEC19970681009E9AB9 /* BAMEbirdWebservice.m in Sources */,
+				FA0BAD6619E3843300699282 /* BAMDatabaseUtil.m in Sources */,
 				FA5CB8061980A9FE008E12B5 /* BAMModelObject+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,10 +586,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirdsAroundMe/BirdsAroundMe-Prefix.pch";
 				INFOPLIST_FILE = "BirdsAroundMe/BirdsAroundMe-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -575,10 +603,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BirdsAroundMe/BirdsAroundMe-Prefix.pch";
 				INFOPLIST_FILE = "BirdsAroundMe/BirdsAroundMe-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
