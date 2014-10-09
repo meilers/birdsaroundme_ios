@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MergeChangesDelegate.h"
 
 @class BAMEbirdWebservice;
-@class BAMMergeChangesDelegate;
+
 
 @interface BAMSightingSynchronizer : NSObject
 
-@property (strong, nonatomic) BAMMergeChangesDelegate *delegate;
+@property (strong, nonatomic) id <MergeChangesDelegate> delegate;
 
 - (id)initWithContext:(NSManagedObjectContext *)context
            webservice:(BAMEbirdWebservice *)webservice;

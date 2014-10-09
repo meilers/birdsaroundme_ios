@@ -8,7 +8,7 @@
 
 #import "BAMSightingSynchronizer.h"
 #import "BAMEbirdWebservice.h"
-#import "BAMMergeChangesDelegate.h"
+#import "MergeChangesDelegate.h"
 #import "BAMRemoteSighting+Extensions.h"
 
 @interface BAMSightingSynchronizer ()
@@ -32,6 +32,8 @@
 
 - (void)sync
 {
+    NSInteger randomDistance = arc4random() % 50;
+    
     [self.webservice fetchAllSightings:^(NSArray *sightings)
      {
          [self.context performBlock:^
@@ -86,7 +88,7 @@
               }
               
           }];
-     } lat:(double)45.5086699 lng:(double)-73.5539924 dist:(int)50 back:(int)30];
+     } lat:(double)45.5086699 lng:(double)-73.5539924 dist:(int)randomDistance back:(int)30];
 }
 
 

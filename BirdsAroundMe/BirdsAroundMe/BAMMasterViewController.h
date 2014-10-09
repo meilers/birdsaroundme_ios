@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "BAMMergeChangesDelegate.h"
+
+#import "MergeChangesDelegate.h"
 
 @class BAMDetailViewController;
 @class BAMPersistentStack;
@@ -16,13 +17,12 @@
 @class BAMSightingSynchronizer;
 
 
-@interface BAMMasterViewController : UITableViewController <BAMMergeChangesDelegate, NSFetchedResultsControllerDelegate>
+@interface BAMMasterViewController : UITableViewController<MergeChangesDelegate>
 
 
 @property (strong, nonatomic) BAMDetailViewController *detailViewController;
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+- (void)mergeChanges:(NSNotification*)notification;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol BAMMergeChangesDelegate <NSObject>
+@protocol MergeChangesDelegate <NSObject>
 
 - (void)mergeChanges:(NSNotification*)notification;
 
